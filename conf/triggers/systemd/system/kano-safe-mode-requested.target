@@ -1,0 +1,17 @@
+# kano-safe-mode-requested.target
+#
+# Copyright (C) 2018 Kano Computing Ltd.
+# License: http://www.gnu.org/licenses/gpl-2.0.txt GNU GPL v2
+#
+# Target to notify system services of Safe Mode just being requested.
+# After this target, the system will reboot and kano-safe-mode.target will
+# be triggerded on the subsequent boot.
+#
+# NOTE: Services that want to be executed on this target need to be configured
+# to run Before this target and [Install] with RequiredBy. This ensures that
+# the target will wait for all services to finish before triggering the reboot.
+
+
+[Unit]
+Description=Kano OS Safe Mode Requested
+DefaultDependencies=yes

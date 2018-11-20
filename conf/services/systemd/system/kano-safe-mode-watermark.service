@@ -1,0 +1,20 @@
+# kano-safe-mode-watermark.service
+#
+# Copyright (C) 2018 Kano Computing Ltd.
+# License: http://www.gnu.org/licenses/gpl-2.0.txt GNU GPL v2
+#
+# A watermark overlay that runs throughout a Safe Mode boot.
+
+
+[Unit]
+Description=Safe Mode Watermark
+DefaultDependencies=no
+IgnoreOnIsolate=true
+
+[Service]
+ExecStart=/usr/bin/kano-start-splash -t -1 -z 2 -b 0000 /usr/share/kano-safe-mode-services/images/kano_safe_mode_watermark.png
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=kano-safe-mode.target

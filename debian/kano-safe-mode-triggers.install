@@ -1,0 +1,4 @@
+bin/check-kano-safe-mode /usr/bin/
+bin/check-kano-safe-mode-user /usr/bin/
+
+conf/triggers/* /usr/lib/

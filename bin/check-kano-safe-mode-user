@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# check-kano-safe-mode-user
+#
+# Copyright (C) 2018 Kano Computing Ltd.
+# License: http://www.gnu.org/licenses/gpl-2.0.txt GNU GPL v2
+#
+# Simple script to check for the system kano-safe-mode.target and trigger the
+# respective user one. It would be nicer to do this purely through systemd.
+
+
+if systemctl --quiet is-active kano-safe-mode.target; then
+    systemctl --user start kano-safe-mode-user.target
+fi

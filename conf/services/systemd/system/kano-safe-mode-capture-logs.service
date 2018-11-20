@@ -1,0 +1,18 @@
+# kano-safe-mode-capture-logs.service
+#
+# Copyright (C) 2018 Kano Computing Ltd.
+# License: http://www.gnu.org/licenses/gpl-2.0.txt GNU GPL v2
+#
+# Capture all debugging logs and zip them on the boot partition
+# when entering Safe Mode.
+
+
+[Unit]
+Description=Safe Mode Capture Logs
+DefaultDependencies=no
+
+[Service]
+ExecStart=/usr/bin/sudo /usr/bin/kano-safe-mode-capture-logs
+
+[Install]
+WantedBy=kano-safe-mode.target

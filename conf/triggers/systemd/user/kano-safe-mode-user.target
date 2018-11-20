@@ -1,0 +1,11 @@
+# kano-safe-mode-user.target
+#
+# Copyright (C) 2018 Kano Computing Ltd.
+# License: http://www.gnu.org/licenses/gpl-2.0.txt GNU GPL v2
+#
+# Target to notify user services of going into Safe Mode.
+
+
+[Unit]
+Description=Kano OS Safe Mode Boot User Session
+DefaultDependencies=yes

@@ -1,0 +1,5 @@
+kano-safe-mode (4.2.0-0) unstable; urgency=low
+
+  * Initial version of the project after migrating from kano-settings.
+
+ -- Team Kano <dev@kano.me>  Fri, 7 Dec 2018 14:36:37 +0000

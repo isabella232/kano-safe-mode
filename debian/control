@@ -1,0 +1,51 @@
+Source: kano-safe-mode
+Maintainer: Team Kano <dev@kano.me>
+Section: admin
+Priority: optional
+Standards-Version: 3.9.4
+Build-Depends:
+    debhelper (>= 9)
+
+Package: kano-safe-mode
+Architecture: any
+Depends:
+    ${shlibs:Depends},
+    ${misc:Depends},
+    kano-safe-mode-services (= ${source:Version})
+Description: Main package for Safe Mode features
+
+Package: kano-safe-mode-services
+Architecture: any
+Depends:
+    ${shlibs:Depends},
+    ${misc:Depends},
+    coreutils (>= 8.26-3),
+    kano-feedback (>= 4.2.0),
+    kano-peripherals (>= 4.0.0),
+    kano-profile (>=4.0.0),
+    kano-safe-mode-triggers (>= 4.2.0),
+    kano-settings (>= 4.2.0),
+    kano-splash (>= 4.2.0),
+    libraspberrypi-bin (>= 1.20180417-1),
+    tar (>= 1.29b-1.1)
+Description: Features that use Safe Mode triggers
+ This package contains all services that react to Safe Mode triggers and
+ implement user features.
+
+Package: kano-safe-mode-triggers
+Architecture: any
+Depends:
+    ${shlibs:Depends},
+    ${misc:Depends},
+    kano-desktop (>= 3.15.0),
+    libkano-safe-mode (>= 4.2.0)
+Description: Safe Mode events to trigger services
+ These triggers should be used when extending user features under Safe Mode.
+
+Package: libkano-safe-mode
+Architecture: any
+Depends:
+    ${shlibs:Depends},
+    ${misc:Depends},
+    kano-toolset (>= 3.15.0)
+Description: Low-level library access to Safe Mode implementation

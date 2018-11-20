@@ -1,0 +1,37 @@
+@startuml
+
+|NormalBoot|
+start
+
+Partition "kano-safe-mode-triggers" {
+    :check-kano-safe-mode.service;
+
+    if (was_safe_mode_requested) then (Yes)
+        |SafeModeBoot|
+        :kano-safe-mode.target;
+        
+        Partition "kano-safe-mode-services" {
+            fork
+                |SafeModeBoot|
+                :kano-safe-mode-config-clear.service;
+            forkagain
+                |SafeModeBoot|
+                :kano-safe-mode-capture-logs.service;
+            endfork
+        }
+
+    else if (check_safe_mode_hotkeys) then (Pressed)
+        |NormalBoot|
+        :kano-safe-mode-requested.target;
+        
+        Partition "kano-safe-mode-services" {
+            |NormalBoot|
+            :kano-safe-mode-config.service;
+        }
+    endif
+}
+
+end
+
+@enduml
+

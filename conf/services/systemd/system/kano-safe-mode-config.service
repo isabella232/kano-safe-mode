@@ -1,0 +1,20 @@
+# kano-safe-mode-config.service
+#
+# Copyright (C) 2018 Kano Computing Ltd.
+# License: http://www.gnu.org/licenses/gpl-2.0.txt GNU GPL v2
+#
+# Apply system configuration when Safe Mode is requested for the next boot.
+# This is appropriate ONLY for configuration that takes effect after a reboot.
+
+
+[Unit]
+Description=Safe Mode Configuration
+DefaultDependencies=no
+Before=kano-safe-mode-requested.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/sudo /usr/bin/kano-safe-mode-config
+
+[Install]
+RequiredBy=kano-safe-mode-requested.target

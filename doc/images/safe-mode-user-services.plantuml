@@ -1,0 +1,34 @@
+@startuml
+
+|NormalBoot|
+start
+
+Partition "kano-safe-mode-triggers" {
+    :check-kano-safe-mode-user.service;
+
+    if (is_safe_mode) then (Yes)
+        |SafeModeBoot|
+        :kano-safe-mode-user.target;
+        
+        Partition "kano-safe-mode-services" {
+            fork
+                |SafeModeBoot|
+                :kano-safe-mode-animation.service;
+            forkagain
+                |SafeModeBoot|
+                :kano-safe-mode-watermark.service;
+            forkagain
+                |SafeModeBoot|
+                :kano-safe-mode-sound-loop.service;
+            forkagain
+                |SafeModeBoot|
+                :kano-safe-mode-track-sync.service;
+            endfork
+        }
+    endif
+}
+
+end
+
+@enduml
+

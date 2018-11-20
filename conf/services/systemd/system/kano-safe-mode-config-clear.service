@@ -1,0 +1,19 @@
+# kano-safe-mode-config-clear.service
+#
+# Copyright (C) 2018 Kano Computing Ltd.
+# License: http://www.gnu.org/licenses/gpl-2.0.txt GNU GPL v2
+#
+# Revert Safe Mode configuration on the same boot such that next boot will
+# be a clean one. This is appropriate ONLY for configuration that takes
+# effect after a reboot.
+
+
+[Unit]
+Description=Safe Mode Configuration
+DefaultDependencies=no
+
+[Service]
+ExecStart=/usr/bin/sudo /usr/bin/kano-safe-mode-config-clear
+
+[Install]
+WantedBy=kano-safe-mode.target

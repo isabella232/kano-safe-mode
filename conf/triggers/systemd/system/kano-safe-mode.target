@@ -1,0 +1,13 @@
+# kano-safe-mode.target
+#
+# Copyright (C) 2018 Kano Computing Ltd.
+# License: http://www.gnu.org/licenses/gpl-2.0.txt GNU GPL v2
+#
+# Target to notify system services of going into Safe Mode. The first
+# subsequent boot that is not in Safe Mode will trigger
+# kano-safe-mode-clear.target to eliminate state changes.
+
+
+[Unit]
+Description=Kano OS Safe Mode Boot
+DefaultDependencies=yes

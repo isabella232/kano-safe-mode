@@ -1,0 +1,25 @@
+# kano-safe-mode-animation.service
+#
+# Copyright (C) 2018 Kano Computing Ltd.
+# License: http://www.gnu.org/licenses/gpl-2.0.txt GNU GPL v2
+#
+# An LED ring animation that runs throughout a Safe Mode boot.
+#
+# TODO: Move this in system space once kano-boards.service is a system service.
+
+
+[Unit]
+Description=Safe Mode LED ring animation
+DefaultDependencies=no
+IgnoreOnIsolate=true
+BindsTo=kano-boards.service
+After=kano-boards.service
+
+[Service]
+ExecStart=/usr/bin/kano-speakerleds notification start
+KillSignal=SIGINT
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=kano-safe-mode-user.target

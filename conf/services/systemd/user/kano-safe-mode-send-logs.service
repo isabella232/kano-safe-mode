@@ -1,0 +1,17 @@
+# kano-safe-mode-send-logs.service
+#
+# Copyright (C) 2018 Kano Computing Ltd.
+# License: http://www.gnu.org/licenses/gpl-2.0.txt GNU GPL v2
+#
+# TODO
+
+
+[Unit]
+Description=Safe Mode Send Logs
+DefaultDependencies=no
+
+[Service]
+ExecStart=/usr/bin/kano-safe-mode-send-logs
+
+[Install]
+WantedBy=default.target

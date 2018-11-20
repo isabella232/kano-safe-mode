@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# kano-safe-mode-triggers.prerm
+#
+# Copyright (C) 2018 Kano Computing Ltd.
+# License: http://www.gnu.org/licenses/gpl-2.0.txt GNU GPLv2
+#
+# Pre debian package remove script.
+
+
+case "$1" in
+    remove|upgrade)
+        # Disable system systemd services.
+        systemctl disable check-kano-safe-mode.service
+
+        # Disable user systemd services for all users.
+        systemctl --global disable check-kano-safe-mode-user.service
+        ;;
+esac

@@ -1,0 +1,18 @@
+# kano-safe-mode-track-and-sync.service
+#
+# Copyright (C) 2018 Kano Computing Ltd.
+# License: http://www.gnu.org/licenses/gpl-2.0.txt GNU GPL v2
+#
+# Send Kano a tracking event that the kit entered a Safe Mode boot and sync
+# the events to the servers.
+
+
+[Unit]
+Description=Safe Mode Track and Sync
+DefaultDependencies=no
+
+[Service]
+ExecStart=/usr/bin/kano-safe-mode-track-and-sync
+
+[Install]
+WantedBy=kano-safe-mode-user.target

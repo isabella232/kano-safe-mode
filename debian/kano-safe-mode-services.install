@@ -1,0 +1,12 @@
+bin/kano-safe-mode-capture-logs /usr/bin/
+bin/kano-safe-mode-config /usr/bin/
+bin/kano-safe-mode-config-clear /usr/bin/
+bin/kano-safe-mode-send-logs /usr/bin/
+bin/kano-safe-mode-sound-loop /usr/bin/
+bin/kano-safe-mode-track-and-sync /usr/bin/
+
+conf/services/* /usr/lib/
+
+res/* /usr/share/kano-safe-mode-services/
+
+src/kano_safe_mode_services /usr/lib/python2.7/dist-packages

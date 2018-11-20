@@ -1,0 +1,25 @@
+#!/usr/bin/env python
+
+# kano-safe-mode-config
+#
+# Copyright (C) 2018 Kano Computing Ltd.
+# License: http://www.gnu.org/licenses/gpl-2.0.txt GNU General Public License v2
+#
+# TODO
+#
+# Requires sudo to run.
+
+
+import os
+import sys
+
+if __name__ == '__main__' and __package__ is None:
+    dir_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'src'))
+    if dir_path != '/usr':
+        sys.path.insert(1, dir_path)
+
+from kano_safe_mode_services.kano_safe_mode_config import main
+
+
+if __name__ == '__main__':
+    sys.exit(main() or 0)
